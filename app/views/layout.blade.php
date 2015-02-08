@@ -9,6 +9,8 @@
     <link rel=stylesheet href="/coldcamp/css/index.css" />
     <script src="/coldcamp/js/jquery-2.1.3.min.js"></script>
     <script src="/coldcamp/js/bootstrap.min.js"></script>
+    <script src="/coldcamp/js/highcharts.js"</script>
+    <script src="/coldcamp/js/modules/exporting.js"></script>
 </head>
 
 <body>

@@ -58,9 +58,17 @@ class AdminController extends BaseController {
     }
   }
 
-  public function watch()
+  public function dashpoint()
   {
-    
+    if (Auth::check())
+    {
+      $point=Point::all();
+      return View::make('admin.dashpoint')->with('point',$point);
+    }
+    else
+    {
+      return Redirect::to('/admin');
+    }
 	}
   
   //登出 控制器
