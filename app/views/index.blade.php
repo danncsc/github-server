@@ -1,30 +1,22 @@
-@extends('start.layout')
+@extends('layout')
 
 @section('contain')
 
-<div class="jumbotron" id="start">
-            <h1>Hello, world!</h1>
-            <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <center>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">開始使用</a>
-                </p>
-            </center>
-        </div>
-        <div class="col-md-9">
-            @foreach ($posts->$post )
-            <div class="post">
-                <h3><a href="#">{{{ $post->title }}}</a></h3>
-                <div class="infor">Posted:{{{ $post->timeStamp }}} 作者：{{{ $post->author }}}</div>
-                <p>{{{ $post->content }}}</p>
-            </div>
-            @endforreach
-        </div>
-
-        <div class="col-md-3">
-            <li>
-                <a href="#">
-                    <p>管理登入</p>
-                </a>
+        <div class="col-md-4 col-md-offset-4">
+            <form class="form-signin" method="post">
+                <center><h2 class="form-signin-heading">學生登入</h2></center>
+                @if(Session::get('error')=="#")
+                <div class="alert alert-warning" role="alert">===通關密碼錯誤===</div>
+                @endif
+                @if(Session::get('logout')=="#")
+                <div class="alert alert-success" role="alert">===登出成功===</div>
+                @endif
+                <label for="inputPassword" class="sr-only">通關密碼</label>
+                <input name="inputPassword" class="form-control" placeholder="請輸入通關密碼" required="" type="password"></input>
+                <br />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
+            </form>
+            <li class="admin"><a href="admin">管理登入</a>
             </li>
         </div>
 
