@@ -5,7 +5,7 @@
         <div class="container">
             @if(!Session::has('output'))
                 <div class="alert alert-warning" role="alert">
-                    <strong>藍色標籤為伺服器已存在專案 紅色為gihhub上有伺服器沒有的</strong>
+                    <strong>藍色標籤為伺服器已存在專案 紅色為gihhub上有伺服器沒有的<br>http://dacsc.club/專案名為專案位址 laravel框架上傳完請在進伺服器設定</strong>
                 </div>
             @else
                 <div class="alert alert-warning" role="alert">
