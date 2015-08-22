@@ -10,7 +10,9 @@
             @else
                 <div class="alert alert-warning" role="alert">
                     <strong>指令輸出:</strong><br>
-                    {{Session::get('output')}}
+                    @foreach($output as $out)
+                        {{$out}}<br>
+                    @endforeach
                 </div>
             @endif
 

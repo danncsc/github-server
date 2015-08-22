@@ -75,7 +75,7 @@ class indexController extends BaseController {
 		);
 		SSH::run($commands, function($line)
 		{
-			$output=$output.$line.PHP_EOL;
+			$output[]=$line.PHP_EOL;
 		});
 		return Redirect::to('control')->with('output',$output);
 	}
