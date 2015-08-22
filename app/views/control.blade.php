@@ -3,7 +3,7 @@
 @section('contain')
 
         <div class="container">
-            <h6>藍色標籤為伺服器已存在專案<br>紅色為gihhub上有伺服器沒有的</h6>
+            <h3>藍色標籤為伺服器已存在專案 紅色為gihhub上有伺服器沒有的</h3>
             <form method="post">
                 @foreach($projects as $project)
                     <div class="panel panel-primary">
