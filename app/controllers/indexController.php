@@ -67,6 +67,20 @@ class indexController extends BaseController {
 		return View::make('control')->with('projects',$proserver)->with('proremotes',$datas);
 	}
 
+	public function update($id){
+		$project=Project::find($id);
+		$commands=array(
+			'cd '.$project->server,
+			'git pull',
+		);
+		$output="";
+		SSH::run($commands, function($line)
+		{
+			$output.=$line."<br>";
+		});
+		return Redirect::to('control')->with('output',$output);
+	}
+
   
     //登出 控制器
     public function logout()

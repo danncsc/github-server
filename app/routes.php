@@ -26,6 +26,8 @@ Route::post('/norem','RemindersController@postRemind');
 Route::group(array('before' => 'auth'), function()
 {
     Route::get('/control','indexController@control');
+    Route::get('/control.update.{id}','indexController@update');
+    Route::get('/control.add.{name}','indexController@add');
 });
 
 Route::get('/admin', function()
