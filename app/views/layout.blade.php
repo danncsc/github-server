@@ -22,14 +22,16 @@
                 </ul>
             </div>
         </nav>
-
+        <br />
+        <br />
+        <br />
         @yield('contain')
 
     </div>
     <nav class="navbar navbar-default  navbar-fixed-bottom">
         <div class="container">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://dacsc.club" class="navbar-text">Auto-Distribute System All rights reserved Daan Computer Research Club</a></li>
+                <a href="http://dacsc.club" class="navbar-text">By 大安高工電腦研究社 16th網管陳典佑</a>
             </ul>
         </div>
     </nav>
