@@ -53,7 +53,8 @@ class indexController extends BaseController {
 		$data = curl_exec($ch);
 		curl_close($ch);
 		$data = json_decode($data, true); // 將json字串轉成陣列
-		return View::make('control')->with('projects',$data);
+		return $data;
+		//return View::make('control')->with('projects',$data);
 	}
 
   
