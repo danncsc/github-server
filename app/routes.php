@@ -16,9 +16,8 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::post('/', 'StudentController@login');
+Route::post('/', 'indexController@login');
 
-Route::get('/point', 'StudentController@watch');
 
 Route::get('/logout', 'StudentController@logout');
 
@@ -29,13 +28,4 @@ Route::get('/admin', function()
 
 Route::post('/admin', 'AdminController@login');
 
-Route::get('/admin/point', 'AdminController@point');
-Route::post('/admin/point', 'AdminController@write');
 
-Route::get('/admin/dashpoint','AdminController@dashpoint');
-
-Route::get('/admin/{auth}', function($auth)
-{
-  $auth=Hash::make($auth);
-  return $auth;
-});
