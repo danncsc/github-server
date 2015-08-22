@@ -20,7 +20,7 @@ class indexController extends BaseController {
         $account=Input::get('account');
         $password=Input::get('password');
         if (Auth::attempt(array('account' => $account, 'password' => $password,'active' => 1))) {
-			return Redirect::to('/controll');
+			return Redirect::to('/control');
         } else {
 			return Redirect::to('/')->with('error','1');
         }
@@ -45,7 +45,7 @@ class indexController extends BaseController {
 
 	public function control(){
 		$url = "https://api.github.com/users/danncsc/repos";
-		$data = file_get_contents($url); // 取得json字串
+		$data = file($url); // 取得json字串
 		$data = json_decode($data, true); // 將json字串轉成陣列
 		return View::make('control')->with('projects',$data);
 	}
