@@ -119,6 +119,7 @@ class indexController extends BaseController {
             $project->server=$server;
             $project->save();
             $commands=array(
+                'cd dacsc',
                 'git clone '.$clone,
             );
             $this->output="";
