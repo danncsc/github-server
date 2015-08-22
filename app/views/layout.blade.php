@@ -26,7 +26,9 @@
         <br />
         <br />
         @yield('contain')
-
+        <br />
+        <br />
+        <br />
     </div>
     <nav class="navbar navbar-default  navbar-fixed-bottom">
         <div class="container">

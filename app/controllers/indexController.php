@@ -51,10 +51,20 @@ class indexController extends BaseController {
 		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,0);
 		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,0);
 		curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-		$data = curl_exec($ch);
+		$datas = curl_exec($ch);
 		curl_close($ch);
-		$data = json_decode($data, true); // 將json字串轉成陣列
-		return View::make('control')->with('projects',$data);
+		$datas = json_decode($datas, true); // 將json字串轉成陣列
+		$projects=Project::all();
+		foreach($projects as $project){
+			for($i=0;$i<count(datas);$i++){
+				if($project->clone==$datas[$i]['clone_url']){
+					$proserver[]=$project;
+					unset($datas[$i]);
+					$datas=array_values($datas);
+				}
+			}
+		}
+		return View::make('control')->with('projects',$proserver)->with('proremotes',$datas);
 	}
 
   
