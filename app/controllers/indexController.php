@@ -53,9 +53,10 @@ class indexController extends BaseController {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 		$data = curl_exec($ch);
+		$error=curl_error($ch);
 		curl_close($ch);
 		$data = json_decode($data, true); // 將json字串轉成陣列
-		return $data;
+		return $data.$error;
 		//return View::make('control')->with('projects',$data);
 	}
 
