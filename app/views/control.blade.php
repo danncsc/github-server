@@ -14,7 +14,7 @@
                             <p>{{$project->commit}}</p>
                             專案網頁：<a href="{{$project->site}}">{{$project->site}}</a>
                             <p>專案位址：{{$project->clone}}</p>
-                            <input type="submit" class="pull-right btn btn-success" name="update">更新</input>
+                            <input type="submit" class="pull-right btn btn-success" name="update" value="更新" />
                         </div>
                     </div>
                 @endforeach
@@ -27,7 +27,7 @@
                             <p>{{$proremote['description']}}</p>
                             專案網頁：<a href="{{$proremote['html_url']}}">{{$proremote['html_url']}}</a>
                             <p>專案位址：{{$proremote['clone_url']}}</p>
-                            <input type="submit" class="pull-right btn btn-success" name="update">新增進伺服器</input>
+                            <input type="submit" class="pull-right btn btn-success" name="update" value="新增進伺服器" />
                         </div>
                     </div>
                 @endforeach
