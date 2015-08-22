@@ -80,9 +80,7 @@ class indexController extends BaseController {
 		{
 			$this->output.=$line."<br>";
 		});
-        $name=$project->name;
-		$project->name=$name;
-		$project->save();
+        $project->touch();
 		return Redirect::to('control')->with('output',$this->output);
 	}
 
