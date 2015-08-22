@@ -8,12 +8,12 @@
                 <br />
                 <div class="form-group">
                     <label for="inputPassword" class="control-label">名稱</label>
-                    <input name="name" class="form-control disabled" required="" type="text" value="{{$project['name']}}" />
+                    <input name="name" class="form-control disabled" required="" type="text" value="{{$project['name']}}" disabled />
                 </div>
                 <br />
                 <div class="form-group">
                     <label for="inputPassword" class="control-label">clone</label>
-                    <input name="clone" class="form-control disabled" required="" type="password" value="{{$project['clone_url']}}" />
+                    <input name="clone" class="form-control disabled" required="" type="text" value="{{$project['clone_url']}}" disabled />
                 </div>
                 <br />
                 <div class="form-group">
