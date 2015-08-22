@@ -27,8 +27,6 @@
             </form>
             <br />
             <li><a href="./apply">註冊</a></li>
-            <br />
-            <li><a href="./norem">忘記密碼</a></li>
         </div>
 
 @stop

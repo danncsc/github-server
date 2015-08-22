@@ -21,8 +21,6 @@ Route::get('/apply', function()
     return View::make('apply');
 });
 Route::post('/apply', 'indexController@apply');
-Route::get('/norem','RemindersController@getRemind');
-Route::post('/norem','RemindersController@postRemind');
 Route::group(array('before' => 'auth'), function()
 {
     Route::get('/control','indexController@control');
