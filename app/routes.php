@@ -15,11 +15,18 @@ Route::get('/', function()
 {
 	return View::make('index');
 });
-
 Route::post('/', 'indexController@login');
-
-
-Route::get('/logout', 'StudentController@logout');
+Route::get('/apply', function()
+{
+    return View::make('apply');
+});
+Route::post('/apply', 'indexController@apply');
+Route::get('/norem','RemindersController@getRemind');
+Route::post('/norem','RemindersController@postRemind');
+Route::group(array('before' => 'auth'), function()
+{
+    Route::get('/control','indexController@control');
+});
 
 Route::get('/admin', function()
 {
@@ -27,5 +34,7 @@ Route::get('/admin', function()
 });
 
 Route::post('/admin', 'AdminController@login');
+
+Route::when('*', 'csrf', array('post'));
 
 

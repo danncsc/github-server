@@ -10,9 +10,10 @@
                 <label for="inputPassword" class="sr-only">密碼</label>
                 <input name="password" class="form-control" placeholder="請輸入密碼" required="" type="password"></input>
                 <label for="inputPassword" class="sr-only">姓名</label>
-                <input name="password" class="form-control" placeholder="請輸入密碼" required="" type="text"></input>
+                <input name="name" class="form-control" placeholder="請輸入密碼" required="" type="text"></input>
                 <br />
-                <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">註冊</button>
             </form>
         </div>
 
