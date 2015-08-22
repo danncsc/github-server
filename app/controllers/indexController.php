@@ -67,18 +67,19 @@ class indexController extends BaseController {
 		return View::make('control')->with('projects',$proserver)->with('proremotes',$datas);
 	}
 
+	private $output;
+
 	public function update($id){
 		$project=Project::find($id);
 		$commands=array(
 			'cd '.$project->server,
 			'git pull',
 		);
-		static $output;
 		SSH::run($commands, function($line)
 		{
-			$output[]=$line.PHP_EOL;
+			$this->output.=$line."<br>";
 		});
-		return Redirect::to('control')->with('output',$output);
+		return Redirect::to('control')->with('output',$this->output);
 	}
 
   
