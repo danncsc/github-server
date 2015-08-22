@@ -10,7 +10,7 @@
             @else
                 <div class="alert alert-warning" role="alert">
                     <strong>指令輸出:</strong><br>
-                    {{$output}}
+                    {{Session::get('output')}}
                 </div>
             @endif
 
