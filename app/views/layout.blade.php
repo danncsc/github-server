@@ -12,8 +12,8 @@
 
 <body>
     <div class="container" id="contain">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">大安電研github管理伺服器系統</a>
                 </div>
@@ -26,11 +26,13 @@
         @yield('contain')
 
     </div>
-    <div class="container" id="footer">
-        <div class="col-md-12" id="license">
-            <p style="text-align:right">Auto-Distribute System All rights reserved Daan Computer Research Club</p>
+    <nav class="navbar navbar-default  navbar-fixed-bottom">
+        <div class="container">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://dacsc.club" class="navbar-text">Auto-Distribute System All rights reserved Daan Computer Research Club</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 </body>
 
 </html>

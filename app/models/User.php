@@ -25,4 +25,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $fillable = array('name', 'account','password');
 
+	//關閉自動維護時間欄位
+	public $timestamps = false;
+
+
 }
