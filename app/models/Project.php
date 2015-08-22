@@ -6,6 +6,6 @@ class Project extends Eloquent{
   //關閉自動維護時間欄位
   public $timestamps = false;
   //開放直接寫入的欄位
-  protected $fillable = array('name', 'site','server','commit');
+  protected $fillable = array('name', 'site','server','commit','clone');
 }
 

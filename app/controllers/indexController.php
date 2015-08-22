@@ -75,11 +75,84 @@ class indexController extends BaseController {
 			'cd '.$project->server,
 			'git pull',
 		);
+		$this->output="";
 		SSH::run($commands, function($line)
 		{
 			$this->output.=$line."<br>";
 		});
+        $name=$project->name;
+		$project->name=$name;
+		$project->save();
 		return Redirect::to('control')->with('output',$this->output);
+	}
+
+	public function add($name){
+		$url = "https://api.github.com/users/danncsc/repos";
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,0);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,0);
+		curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+		$datas = curl_exec($ch);
+		curl_close($ch);
+		$datas = json_decode($datas, true); // 將json字串轉成陣列
+		foreach($datas as $data){
+			if($data['name']==$name){
+				return View::make('add')->with('project',$data);
+			}
+		}
+		return Redirect::to('control');
+	}
+
+	public function addwrite(){
+		$larvel=Input::get('laravel');
+		if(!$larvel=="laravel"){
+			$name=Input::get('name');
+			$clone=Input::get('clone');
+			$site=Input::get('site');
+			$commit=Input::get('commit');
+            $server="dacsc/".$name;
+            $project=new Project;
+            $project->name=$name;
+            $project->clone=$clone;
+            $project->site=$site;
+            $project->commit=$commit;
+            $project->server=$server;
+            $project->save();
+            $commands=array(
+                'git clone '.$clone,
+            );
+            $this->output="";
+            SSH::run($commands, function($line)
+            {
+                $this->output.=$line."<br>";
+            });
+            return Redirect::to('control')->with('output',$this->output);
+		}
+        else{
+            $name=Input::get('name');
+            $clone=Input::get('clone');
+            $site=Input::get('site');
+            $commit=Input::get('commit');
+            $server=$name;
+            $project=new Project;
+            $project->name=$name;
+            $project->clone=$clone;
+            $project->site=$site;
+            $project->commit=$commit;
+            $project->server=$server;
+            $project->save();
+            $commands=array(
+                'git clone '.$clone,
+            );
+            $this->output="";
+            SSH::run($commands, function($line)
+            {
+                $this->output.=$line."<br>";
+            });
+            return Redirect::to('control')->with('output',$this->output);
+        }
 	}
 
   

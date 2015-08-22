@@ -28,6 +28,7 @@ Route::group(array('before' => 'auth'), function()
     Route::get('/control','indexController@control');
     Route::get('/control.update.{id}','indexController@update');
     Route::get('/control.add.{name}','indexController@add');
+    Route::post('/control.add','indexController@addwrite');
 });
 
 Route::get('/admin', function()
@@ -38,5 +39,6 @@ Route::get('/admin', function()
 Route::post('/admin', 'AdminController@login');
 
 Route::when('*', 'csrf', array('post'));
+Route::when('*','https');
 
 

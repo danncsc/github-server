@@ -20,7 +20,7 @@
                         <h3 class="panel-title">{{$project->name}}</h3>
                     </div>
                     <div class="panel-body">
-                        <p>{{$project->commit}}</p>
+                        <p>{{$project->commit}}<p class="pull-right">{{$project->update-time}}</p></p>
                         專案網頁：<a href="{{$project->site}}">{{$project->site}}</a>
                         <p>專案位址：{{$project->clone}}</p>
                         <a class="pull-right btn btn-success" href="./control.update.{{$project->id}}">更新</a>

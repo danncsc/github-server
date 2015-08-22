@@ -8,17 +8,17 @@
                 <br />
                 <div class="form-group">
                     <label for="inputPassword" class="control-label">帳號</label>
-                    <input name="account" class="form-control" placeholder="請輸入帳號" required="" type="text"></input>
+                    <input name="account" class="form-control" placeholder="請輸入帳號" required="" type="text" />
                 </div>
                 <br />
                 <div class="form-group">
                     <label for="inputPassword" class="control-label">密碼</label>
-                    <input name="password" class="form-control" placeholder="請輸入密碼" required="" type="password"></input>
+                    <input name="password" class="form-control" placeholder="請輸入密碼" required="" type="password" />
                 </div>
                 <br />
                 <div class="form-group">
                     <label for="inputPassword" class="control-label">辨識名稱</label>
-                    <input name="name" class="form-control" placeholder="大安電研16th網管IU" required="" type="text"></input>
+                    <input name="name" class="form-control" placeholder="大安電研16th網管IU" required="" type="text" />
                 </div>
                 <br />
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
