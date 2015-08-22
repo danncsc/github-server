@@ -17,9 +17,15 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">大安電研github管理伺服器系統</a>
                 </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="./admin">管理登入</a></li>
-                </ul>
+                @if(!Auth::check())
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="./admin">管理登入</a></li>
+                    </ul>
+                @else
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="./logout">登出</a></li>
+                    </ul>
+                @endif
             </div>
         </nav>
         <br />

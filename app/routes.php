@@ -27,6 +27,7 @@ Route::group(array('before' => 'auth'), function()
     Route::get('/control.update.{id}','indexController@update');
     Route::get('/control.add.{name}','indexController@add');
     Route::post('/control.add','indexController@addwrite');
+    Route::get('/logout','indexController@logout');
 });
 
 Route::get('/admin', function()
