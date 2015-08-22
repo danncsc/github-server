@@ -56,7 +56,7 @@ class indexController extends BaseController {
 		$datas = json_decode($datas, true); // 將json字串轉成陣列
 		$projects=Project::all();
 		foreach($projects as $project){
-			for($i=0;$i<count(datas);$i++){
+			for($i=0;$i<count($datas);$i++){
 				if($project->clone==$datas[$i]['clone_url']){
 					$proserver[]=$project;
 					unset($datas[$i]);
