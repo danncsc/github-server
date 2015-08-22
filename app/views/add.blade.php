@@ -9,11 +9,13 @@
                 <div class="form-group">
                     <label for="inputPassword" class="control-label">名稱</label>
                     <input name="name" class="form-control disabled" required="" type="text" value="{{$project['name']}}" disabled />
+                    <input name="name" type="hidden" value="{{$project['name']}}" />
                 </div>
                 <br />
                 <div class="form-group">
                     <label for="inputPassword" class="control-label">clone</label>
                     <input name="clone" class="form-control disabled" required="" type="text" value="{{$project['clone_url']}}" disabled />
+                    <input name="clone" type="hidden" value="{{$project['clone_url']}}" />
                 </div>
                 <br />
                 <div class="form-group">
