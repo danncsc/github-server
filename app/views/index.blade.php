@@ -4,6 +4,12 @@
 
         <div class="col-md-4 col-md-offset-4">
             <form class="form-horizontal" method="post">
+                @if(Session::get('error')==1)
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>登入失敗</strong>請檢查帳號密碼 或是帳號還未審核
+                    </div>
+                @endif
                 <center><h2 class="form-signin-heading">登入</h2></center>
                 <br />
                 <div class="form-group">
