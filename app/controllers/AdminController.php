@@ -14,66 +14,24 @@ class AdminController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
+    //登入 控制器
 	public function login()
 	{
-    $account=Input::get('inputAccount');
-    $password=Input::get('inputPassword');
-		if (Auth::attempt(array('account' => $account, 'password' => $password)))
-    {
-      return Redirect::intended('/admin/point');
-    }
-    else
-    {
-      return Redirect::to('/admin'); 
-    }
+      $account=Input::get('account');
+      $password=Input::get('password');
+      if (Auth::attempt(array('account' => $account, 'password' => $password,'active' => 1,'admin' => 1))) {
+
+      } else {
+
+      }
 	}
 
-  public function point()
-  {
-    if (Auth::check())
-    {
-      $point=Point::all();
-      return View::make('admin.point')->with('point',$point)->with('succes','0');
-    }
-    else
-    {
-      return Redirect::to('/admin');
-    }
-  }
 
-  public function write()
-  {
-    if (Auth::check())
-    {
-      $point=Point::where('id','=',Input::get('team'))->firstOrFail();
-      $point->point = $point->point+Input::get('plus');
-      $point->save();
-      $point=Point::all();
-      return View::make('admin.point')->with('point',$point)->with('succes','1');
-    }
-    else
-    {
-      return Redirect::to('/admin');
-    }
-  }
 
-  public function dashpoint()
-  {
-    if (Auth::check())
-    {
-      $point=Point::all();
-      return View::make('admin.dashpoint')->with('point',$point);
-    }
-    else
-    {
-      return Redirect::to('/admin');
-    }
-	}
   
-  //登出 控制器
-  public function logout()
-  {
-    
-  }
+    //登出 控制器
+    public function logout()
+    {
+
+    }
 }

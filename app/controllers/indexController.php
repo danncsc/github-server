@@ -1,6 +1,6 @@
 <?php
 
-class HomeController extends BaseController {
+class indexController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -14,10 +14,24 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-	public function showWelcome()
+    //登入 控制器
+	public function login()
 	{
-		return View::make('hello');
+        $account=Input::get('account');
+        $password=Input::get('password');
+        if (Auth::attempt(array('account' => $account, 'password' => $password,'active' => 1))) {
+
+        } else {
+
+        }
 	}
 
+
+
+  
+    //登出 控制器
+    public function logout()
+    {
+
+    }
 }
