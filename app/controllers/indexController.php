@@ -47,6 +47,8 @@ class indexController extends BaseController {
 		$url = "https://api.github.com/users/danncsc/repos";
 		$ch = curl_init();
 		$timeout = 5;
+		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,0);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,0);
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
