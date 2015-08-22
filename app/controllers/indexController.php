@@ -73,11 +73,9 @@ class indexController extends BaseController {
 			'cd '.$project->server,
 			'git pull',
 		);
-		$output="";
 		SSH::run($commands, function($line)
 		{
-			global $output;
-			$output.=$line.PHP_EOL;
+			$output=$output.$line.PHP_EOL;
 		});
 		return Redirect::to('control')->with('output',$output);
 	}
