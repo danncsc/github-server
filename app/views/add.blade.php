@@ -25,7 +25,7 @@
                 <input type="hidden" name="site" value="{{$project['html_url']}}">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="laravel" value="laravel"> 是laravel框架嘛？
+                        <input type="checkbox" name="laravel" value="laravel"> 是laravel框架嘛？或是nodejs?
                     </label>
                 </div>
                 <br />
