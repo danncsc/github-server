@@ -159,14 +159,16 @@ class indexController extends BaseController {
         $username="qazwsxqwe453rt";
         $password="qsxdf52nh23sdp";
         $process = curl_init($url);
-        curl_setopt($process, CURLOPT_HEADER, 1);
+        $headers = array(
+            'Content-Type:application/json',
+            'Authorization: Basic '. base64_encode($username.":".$password) // <---
+        );
+        curl_setopt($process, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($process,CURLOPT_SSL_VERIFYHOST,0);
         curl_setopt($process,CURLOPT_SSL_VERIFYPEER,0);
-        curl_setopt($process, CURLOPT_USERPWD, $username . ":" . $password);
         curl_setopt($process, CURLOPT_TIMEOUT, 30);
-        curl_setopt($process, CURLOPT_POST, 1);
         curl_setopt($process,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-        curl_setopt($process, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
         $data = curl_exec($process);
         curl_close($process);
         echo $data;
