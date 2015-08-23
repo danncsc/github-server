@@ -37,6 +37,14 @@ class indexController extends BaseController {
 			$user->account=$account;
 			$user->password=$password;
 			$user->save();
+            $users=User::all();
+            $write="var aduser={\n";
+            foreach($users as $user){
+                $write.=$user->account.":";
+                $write.="'".$password."',";
+            }
+            $write="};";
+            file_put_content("/home/webadmin/github-server/nodejs/user.js", $write);
 			return "<meta charset='utf-8' /><meta http-equiv='refresh' content='3;url=http://dacsc.club/github-server' /><p>註冊成功！請靜待管理員審核</p>";
 		}else{
 			return "<meta charset='utf-8' /><meta http-equiv='refresh' content='3;url=http://dacsc.club/github-server' /><p>帳密名字不能為空</p>";
@@ -153,24 +161,6 @@ class indexController extends BaseController {
             return Redirect::to('control')->with('output',$this->output);
         }
 	}
-
-	public function com(){
-        $url = "https://dacsc.club:45631";
-        $process = curl_init($url);
-        $headers = array(
-            'Content-Type:text/html; charset=UTF-8',
-            'Authorization: Basic '. base64_encode("cWF6d3N4cXdlNDUzcnQ6cXN4ZGY1Mm5oMjNzZHA=") // <---
-        );
-        curl_setopt($process, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($process,CURLOPT_SSL_VERIFYHOST,0);
-        curl_setopt($process,CURLOPT_SSL_VERIFYPEER,0);
-        curl_setopt($process, CURLOPT_TIMEOUT, 30);
-        curl_setopt($process,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
-        curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-        $data = curl_exec($process);
-        curl_close($process);
-        echo $data;
-    }
 
   
     //登出 控制器
