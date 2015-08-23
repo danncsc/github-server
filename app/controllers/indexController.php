@@ -169,7 +169,8 @@ class indexController extends BaseController {
         curl_setopt($process, CURLOPT_RETURNTRANSFER, TRUE);
         $data = curl_exec($process);
         curl_close($process);
-        return $data;
+        echo $data;
+        return 0;
     }
 
   
