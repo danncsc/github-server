@@ -23,7 +23,9 @@
                         <p>{{$project->commit}}<p class="pull-right">{{$project->{"updated_at"} }}</p></p>
                         專案網頁：<a href="{{$project->site}}">{{$project->site}}</a>
                         <p>專案位址：{{$project->clone}}</p>
-                        <p class="pull-right">命令模式進入後 請輸入你的帳密 之後 先輸入 "cd {{$project->server}}" 切換進專案目錄</p>
+                        <div class="pull-right">
+                            <p>命令模式進入後 請輸入你的帳密 之後 先輸入 "cd {{$project->server}}" 切換進專案目錄</p>
+                        </div>
                         <div class="pull-right">
                             <a class="btn btn-success" href="https://com.dacsc.club">命令模式</a>
                             <a class="btn btn-success" href="./control.update.{{$project->id}}">更新</a>
