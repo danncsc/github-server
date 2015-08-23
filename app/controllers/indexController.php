@@ -159,7 +159,6 @@ class indexController extends BaseController {
         $username="qazwsxqwe453rt";
         $password="qsxdf52nh23sdp";
         $process = curl_init($url);
-        curl_setopt($process, CURLOPT_HTTPHEADER, array('Content-Type: application/xml', $additionalHeaders));
         curl_setopt($process, CURLOPT_HEADER, 1);
         curl_setopt($process,CURLOPT_SSL_VERIFYHOST,0);
         curl_setopt($process,CURLOPT_SSL_VERIFYPEER,0);
