@@ -170,7 +170,6 @@ class indexController extends BaseController {
         $data = curl_exec($process);
         curl_close($process);
         echo $data;
-        return 0;
     }
 
   
