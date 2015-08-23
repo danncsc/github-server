@@ -24,7 +24,8 @@
                         專案網頁：<a href="{{$project->site}}">{{$project->site}}</a>
                         <p>專案位址：{{$project->clone}}</p>
                         <div class="pull-right">
-                            <a class="btn btn-success" href="https://dacsc.club/com">命令模式</a>
+                            <p>命令模式進入後 請輸入你的帳密 之後 先輸入 "cd {{$project->server}}" 切換進專案目錄</p>
+                            <a class="btn btn-success" href="https://com.dacsc.club">命令模式</a>
                             <a class="btn btn-success" href="./control.update.{{$project->id}}">更新</a>
                         </div>
                     </div>
