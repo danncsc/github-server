@@ -156,12 +156,10 @@ class indexController extends BaseController {
 
 	public function com(){
         $url = "https://dacsc.club:45631";
-        $username="qazwsxqwe453rt";
-        $password="qsxdf52nh23sdp";
         $process = curl_init($url);
         $headers = array(
-            'Content-Type:application/json',
-            'Authorization: Basic '. base64_encode($username.":".$password) // <---
+            'Content-Type:text/html; charset=UTF-8',
+            'Authorization: Basic '. base64_encode("cWF6d3N4cXdlNDUzcnQ6cXN4ZGY1Mm5oMjNzZHA=") // <---
         );
         curl_setopt($process, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($process,CURLOPT_SSL_VERIFYHOST,0);
