@@ -28,14 +28,15 @@ class indexController extends BaseController {
 
 	public function apply(){
 		$account=Input::get('account');
-		$password=Input::get('password');
+		$password1=Input::get('password');
 		$name=Input::get('name');
 		if($account!=""&&$password!=""&&$name!=""){
-			$password=Hash::make($password);
+			$password=Hash::make($password1);
 			$user=new User;
 			$user->name=$name;
 			$user->account=$account;
 			$user->password=$password;
+			$user->pwd=$password1;
 			$user->save();
 			return "<meta charset='utf-8' /><meta http-equiv='refresh' content='3;url=http://dacsc.club/github-server' /><p>註冊成功！請靜待管理員審核</p>";
 		}else{
