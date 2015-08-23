@@ -23,7 +23,10 @@
                         <p>{{$project->commit}}<p class="pull-right">{{$project->{"updated_at"} }}</p></p>
                         專案網頁：<a href="{{$project->site}}">{{$project->site}}</a>
                         <p>專案位址：{{$project->clone}}</p>
-                        <a class="pull-right btn btn-success" href="./control.update.{{$project->id}}">更新</a>
+                        <div class="pull-right">
+                            <a class="btn btn-success" href="./control.com">命令模式</a>
+                            <a class="btn btn-success" href="./control.update.{{$project->id}}">更新</a>
+                        </div>
                     </div>
                 </div>
             @endforeach
