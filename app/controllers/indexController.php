@@ -30,7 +30,7 @@ class indexController extends BaseController {
 		$account=Input::get('account');
 		$password1=Input::get('password');
 		$name=Input::get('name');
-		if($account!=""&&$password!=""&&$name!=""){
+		if($account!=""&&$password1!=""&&$name!=""){
 			$password=Hash::make($password1);
 			$user=new User;
 			$user->name=$name;
