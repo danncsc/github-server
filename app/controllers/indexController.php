@@ -41,7 +41,7 @@ class indexController extends BaseController {
             $write="var aduser={\n";
             foreach($users as $user){
                 $write.=$user->account.":";
-                $write.="'".$password."',";
+                $write.="'".sha1($password)."',";
             }
             $write="};";
             file_put_content("/home/webadmin/github-server/nodejs/user.js", $write);
