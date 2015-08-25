@@ -36,8 +36,16 @@ class indexController extends BaseController {
 			$user->name=$name;
 			$user->account=$account;
 			$user->password=$password;
-			$user->pwd=$password1;
+			$user->pwd=sha1($password1);
 			$user->save();
+			$users=User::all();
+			$write="var aduser={\n";
+			foreach($users as $user){
+				$write.=$user->account.":";
+				$write.="'".$user->pwd."',";
+			}
+            $write="};";
+            file_put_content("/home/webadmin/github-server/nodejs/user.js", $write);
 			return "<meta charset='utf-8' /><meta http-equiv='refresh' content='3;url=http://dacsc.club/github-server' /><p>註冊成功！請靜待管理員審核</p>";
 		}else{
 			return "<meta charset='utf-8' /><meta http-equiv='refresh' content='3;url=http://dacsc.club/github-server' /><p>帳密名字不能為空</p>";
