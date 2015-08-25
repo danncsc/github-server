@@ -85,3 +85,12 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+Route::filter('https',function()
+{
+	if( ! Request::secure() )
+	{
+		return Redirect::secure( Request::path() );
+	}
+});
